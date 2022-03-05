@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="layout/client/main/header::clientHead"></head>
+    <body id="page-top">
+        <!-- navigation -->
+        <nav th:replace="layout/client/main/navigation::navigation"></nav>
+        <!-- welcome header -->
+        <header th:replace="layout/client/main/welcome::welcome"></header>
+        <!-- about us -->
+        <section th:replace="layout/client/main/about::about"></section>
+        <!-- Services-->
+        <section th:replace="layout/client/main/service::service"></section>
+        <!-- Portfolio-->
+        <div th:replace="layout/client/main/product::product"></div>
+        <!-- Contact-->
+        <section th:replace="layout/client/main/contact::contact"></section>
+        <!-- Footer-->
+        <div th:replace="layout/client/main/footer::footer"></div>
+    </body>
+</html>
