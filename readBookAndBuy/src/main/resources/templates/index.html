@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="layout/client/main/header::clientHead"></head>
+    <head th:replace="layout/client/common/header::clientHead"></head>
     <body id="page-top">
         <!-- navigation -->
-        <nav th:replace="layout/client/main/navigation::navigation"></nav>
+        <nav th:replace="layout/client/common/navigation::navigation"></nav>
         <!-- welcome header -->
         <header th:replace="layout/client/main/welcome::welcome"></header>
         <!-- about us -->
@@ -15,6 +15,6 @@
         <!-- Contact-->
         <section th:replace="layout/client/main/contact::contact"></section>
         <!-- Footer-->
-        <div th:replace="layout/client/main/footer::footer"></div>
+        <div th:replace="layout/client/common/footer::footer"></div>
     </body>
 </html>
