@@ -1,6 +1,5 @@
-package readBookAndBuy.readBookAndBuy.domain.enums;
+package readBookAndBuy.readBookAndBuy.domain.entity.book;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -8,16 +7,18 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.sql.Array;
+import java.util.List;
 
 @Entity
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
-public class RoleType {
+public class BookMark {
 
     @Id @GeneratedValue
-    @Column(name = "role_id")
+    @Column(name = "bookmark_id")
     private Long id;
 
-    private String roleType;
+    private String location;
+
 }

@@ -21,11 +21,14 @@ public class DeliveryAddress {
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "user_id")
-    private User user;
+    private Users user;
 
     public DeliveryAddress(String userAddress1, String userAddress2, String userAddress3) {
         this.userAddress1 = userAddress1;
         this.userAddress2 = userAddress2;
         this.userAddress3 = userAddress3;
     }
+
+
+
 }

@@ -1,5 +1,5 @@
 package readBookAndBuy.readBookAndBuy.domain.enums;
 
-public enum UserGrade {
+public enum UserGradeEnum {
     BRONZE, SILVER, GOLD;
 }

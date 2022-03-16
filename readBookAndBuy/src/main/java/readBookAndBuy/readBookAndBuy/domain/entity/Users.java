@@ -2,9 +2,9 @@ package readBookAndBuy.readBookAndBuy.domain.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.apache.tomcat.jni.Address;
-import readBookAndBuy.readBookAndBuy.domain.enums.RoleType;
-import readBookAndBuy.readBookAndBuy.domain.enums.UserGrade;
+import readBookAndBuy.readBookAndBuy.domain.entity.base.BaseTimeEntity;
+import readBookAndBuy.readBookAndBuy.domain.entity.role.Roles;
+import readBookAndBuy.readBookAndBuy.domain.enums.UserGradeEnum;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -12,14 +12,14 @@ import javax.validation.constraints.Pattern;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
-import static javax.persistence.FetchType.*;
+import static javax.persistence.CascadeType.ALL;
+import static javax.persistence.FetchType.LAZY;
 
 @Entity
 @NoArgsConstructor
 @Getter
-public class User extends DeliveryAddress {
+public class Users extends BaseTimeEntity {
 
     @Id @GeneratedValue
     @Column(name = "user_id")
@@ -27,7 +27,7 @@ public class User extends DeliveryAddress {
 
     @OneToOne(fetch = LAZY)
     @JoinColumn(name="role_id")
-    private RoleType roleType;
+    private Roles roles;
 
     @Email
     private String email;
@@ -46,13 +46,13 @@ public class User extends DeliveryAddress {
     private String companyNumber;
 
     @Enumerated(EnumType.STRING)
-    private UserGrade userGrade;
+    private UserGradeEnum userGrade;
     private LocalDate birthDay;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = ALL)
     private List<DeliveryAddress> deliveryAddresses = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = ALL)
     private List<Subscribe> subscribes = new ArrayList<>();
 
     public void addDeliveryAddress(DeliveryAddress address){
