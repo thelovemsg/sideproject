@@ -27,7 +27,6 @@ public class Subscribe {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    private List<User> users = new ArrayList<>();
-
+    private User user;
 
 }
