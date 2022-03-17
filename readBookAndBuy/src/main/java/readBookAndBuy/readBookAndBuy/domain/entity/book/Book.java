@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import readBookAndBuy.readBookAndBuy.domain.entity.File;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,13 +16,12 @@ import static javax.persistence.FetchType.*;
 @Entity
 @Getter
 @NoArgsConstructor
-public class Book {
+public class Book implements Serializable {
 
     @Id @GeneratedValue
     @Column(name = "book_id")
     private Long id;
 
-    @Id
     private String isbn;
     private String author;
     private String publishCompany;
@@ -29,19 +29,11 @@ public class Book {
     private String bookName;
 
     @ManyToOne(fetch = LAZY)
-    @JoinColumn(name = "file_id")
-    private List<File> files = new ArrayList<>();
+    @JoinColumn(name = "book_classify_id")
+    private BookClassify bookClassify;
 
     @ManyToOne(fetch = LAZY)
-    @JoinColumn(name = "book_classify_id")
-    private List<BookClassify> bookClassifies = new ArrayList<>();
-
-    public void addClassifyForBookInfo(BookClassify bookClassify){
-        bookClassifies.add(bookClassify);
-    }
-
-    public void removeClassifyForBookInfo(BookClassify bookClassify){
-        bookClassifies.stream().filter(bc -> bc.getId() != bookClassify.getId()).collect(Collectors.toList());
-    }
+    @JoinColumn(name = "file_id", insertable = false, updatable = false)
+    private File file;
 
 }

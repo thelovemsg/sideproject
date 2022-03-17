@@ -3,12 +3,11 @@ package readBookAndBuy.readBookAndBuy.domain.entity.book;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Array;
 import java.util.List;
+
+import static javax.persistence.FetchType.*;
 
 @Entity
 @Getter
@@ -20,5 +19,9 @@ public class BookMark {
     private Long id;
 
     private String location;
+
+    @ManyToOne(fetch = LAZY)
+    @JoinColumn(name = "lend_id")
+    private Lend lend;
 
 }

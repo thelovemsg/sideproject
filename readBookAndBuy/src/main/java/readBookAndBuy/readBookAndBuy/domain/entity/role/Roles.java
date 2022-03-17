@@ -19,5 +19,4 @@ public class Roles {
     @Enumerated(EnumType.STRING)
     private RoleTypeEnum roleType;
 
-
 }
