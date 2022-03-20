@@ -24,7 +24,7 @@ public class Subscribe {
     private boolean isExpired;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private Users user;
+    @JoinColumn(name = "member_id")
+    private Member member;
 
 }

@@ -29,6 +29,9 @@ public class BookOrdersDetail {
     @JoinColumn(name = "user_orders_id")
     private UserOrders userOrders;
 
+    @Convert(converter = BooleanConverter.class)
+    private boolean isPaid;
+
     @OneToMany(mappedBy = "bookOrdersDetail")
     private List<BookOrderRefund> bookOrderRefundList = new ArrayList<>();
 

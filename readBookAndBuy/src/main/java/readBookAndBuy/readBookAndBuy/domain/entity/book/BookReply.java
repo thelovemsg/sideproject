@@ -14,7 +14,6 @@ import static javax.persistence.FetchType.*;
 @Entity
 @Getter
 @Setter
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class BookReply {
@@ -35,7 +34,7 @@ public class BookReply {
     @Convert(converter = BooleanConverter.class)
     private boolean isDeleted;
 
-    @ManyToOne
+    @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "parent_id")
     private BookReply parent;
 

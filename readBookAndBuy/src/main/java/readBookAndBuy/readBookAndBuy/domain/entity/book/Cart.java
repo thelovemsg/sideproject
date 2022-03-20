@@ -2,11 +2,11 @@ package readBookAndBuy.readBookAndBuy.domain.entity.book;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import readBookAndBuy.readBookAndBuy.domain.entity.Users;
+import readBookAndBuy.readBookAndBuy.domain.entity.Member;
 
 import javax.persistence.*;
 
-import static javax.persistence.FetchType.*;
+import static javax.persistence.FetchType.LAZY;
 
 @Entity
 @Getter
@@ -19,7 +19,7 @@ public class Cart {
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "user_id")
-    private Users user;
+    private Member member;
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "book_id")

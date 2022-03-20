@@ -17,8 +17,8 @@ public class DeliveryAddress extends Address{
     private Long id;
 
     @ManyToOne(fetch = LAZY)
-    @JoinColumn(name = "user_id")
-    private Users user;
+    @JoinColumn(name = "member_id")
+    private Member member;
 
     private boolean isMainAddress;
 

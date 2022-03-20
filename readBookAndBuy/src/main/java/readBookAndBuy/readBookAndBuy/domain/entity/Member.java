@@ -19,10 +19,10 @@ import static javax.persistence.FetchType.LAZY;
 @Entity
 @NoArgsConstructor
 @Getter
-public class Users extends BaseTimeEntity {
+public class Member extends BaseTimeEntity {
 
     @Id @GeneratedValue
-    @Column(name = "user_id")
+    @Column(name = "member_id")
     private Long id;
 
     @OneToOne(fetch = LAZY)
@@ -49,10 +49,10 @@ public class Users extends BaseTimeEntity {
     private UserGradeEnum userGrade;
     private LocalDate birthDay;
 
-    @OneToMany(mappedBy = "user", cascade = ALL)
+    @OneToMany(mappedBy = "member", cascade = ALL)
     private List<DeliveryAddress> deliveryAddresses = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user", cascade = ALL)
+    @OneToMany(mappedBy = "member", cascade = ALL)
     private List<Subscribe> subscribes = new ArrayList<>();
 
     public void addDeliveryAddress(DeliveryAddress address){

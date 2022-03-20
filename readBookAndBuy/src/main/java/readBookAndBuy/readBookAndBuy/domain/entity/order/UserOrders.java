@@ -3,7 +3,7 @@ package readBookAndBuy.readBookAndBuy.domain.entity.order;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import readBookAndBuy.readBookAndBuy.domain.entity.Address;
-import readBookAndBuy.readBookAndBuy.domain.entity.Users;
+import readBookAndBuy.readBookAndBuy.domain.entity.Member;
 
 import javax.persistence.*;
 
@@ -20,7 +20,7 @@ public class UserOrders extends Address {
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "user_id")
-    private Users user;
+    private Member member;
 
     private String receiverName;
     private String receiverPhone;
